@@ -19,15 +19,20 @@ public class Teleop extends LinearOpMode {
 
         robot.init(hardwareMap);
 
-        telemetry.addData("Say", "Hello Driver");    //
+        telemetry.addData("Say", "Hello Driver");
         telemetry.update();
 
         waitForStart();
 
         while (opModeIsActive()) {
 
-            left = -gamepad1.left_stick_y;
-            right = -gamepad1.right_stick_y;
+            left = gamepad1.left_stick_y;
+            right = gamepad1.right_stick_y;
+
+            if(gamepad1.right_bumper){
+                left /= 2;
+                right /= 2;
+            }
 
             robot.f_rightMotor.setPower(right);
             robot.b_rightMotor.setPower(right);

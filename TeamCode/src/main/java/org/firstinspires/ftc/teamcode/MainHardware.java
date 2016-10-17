@@ -40,10 +40,10 @@ public class MainHardware {
         b_rightMotor.setPower(0);
 
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        f_leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        b_leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        f_rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        b_rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        f_leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        b_leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        f_rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        b_rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
     }
 

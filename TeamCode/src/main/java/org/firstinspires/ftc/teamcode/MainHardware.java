@@ -2,14 +2,20 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class MainHardware {
     /* Public OpMode members. */
-    public DcMotor b_leftMotor = null;
-    public DcMotor b_rightMotor = null;
-    public DcMotor f_leftMotor = null;
-    public DcMotor f_rightMotor = null;
+    public DcMotor leftMotors = null;
+    public DcMotor rightMotors = null;
+    public DcMotor beaterBar = null;
+    public DcMotor launcher = null;
+
+    public Servo leftButton = null;
+    public Servo rightButton = null;
+    public Servo launch = null;
+    public Servo phone = null;
 
 
     /* Local OpMode members. */
@@ -26,23 +32,33 @@ public class MainHardware {
         hwMap = ahwMap;
 
         // Define and Initialize Motors
-        f_leftMotor   = hwMap.dcMotor.get("front left motor");
-        b_leftMotor   = hwMap.dcMotor.get("back left motor");
-        f_rightMotor  = hwMap.dcMotor.get("front right motor");
-        b_rightMotor  = hwMap.dcMotor.get("back right motor");
+        leftMotors  = hwMap.dcMotor.get("left motors");
+        rightMotors = hwMap.dcMotor.get("right motors");
+        beaterBar = hwMap.dcMotor.get("beater bar");
+        launcher = hwMap.dcMotor.get("launcher");
 
-        f_leftMotor.setDirection(DcMotor.Direction.REVERSE);
-        b_leftMotor.setDirection(DcMotor.Direction.REVERSE);
+        leftButton = hwMap.servo.get("leftButton");
+        rightButton = hwMap.servo.get("rightButton");
+        phone = hwMap.servo.get("phone");
+        launch = hwMap.servo.get("launch");
+
+        leftMotors.setDirection(DcMotor.Direction.REVERSE);
         // Set all motors to zero power
-        f_leftMotor.setPower(0);
-        b_leftMotor.setPower(0);
-        f_rightMotor.setPower(0);
-        b_rightMotor.setPower(0);
+        leftMotors.setPower(0);
+        rightMotors.setPower(0);
+        beaterBar.setPower(0);
+        launcher.setPower(0);
+
+        leftButton.setPosition(0.35);
+        rightButton.setPosition(0.9);
+        launch.setPosition(0);//.5
+        phone.setPosition(1); //.5 up
 
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-//        f_leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        leftMotors.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 //        b_leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//        f_rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightMotors.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        launcher.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 //        b_rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
     }
